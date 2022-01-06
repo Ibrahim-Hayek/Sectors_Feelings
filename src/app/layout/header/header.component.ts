@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
     this.setDefaultLanguage();
   }
 
-  toggleDrawer() {
+  toggleDrawer(): void {
     this.navToggle.emit(true)
   }
 

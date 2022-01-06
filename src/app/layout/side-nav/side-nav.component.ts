@@ -15,7 +15,7 @@ export class SideNavComponent {
   opened: boolean;
   routes = [
     {
-      title: 'Feelings Table',
+      title: 'SectorsTable',
       route: 'feelings-table'
     },
     {

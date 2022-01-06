@@ -15,7 +15,7 @@ export class TablePaginatorComponent {
   @Output() paginationChanged: EventEmitter<any> = new EventEmitter();
 
   // Trigger the paginator page change
-  page(event: any) {
+  page(event: any): void {
     this.paginationChanged.emit(event)
   }
 }

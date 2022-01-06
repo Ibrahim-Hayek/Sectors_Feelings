@@ -1,3 +1,25 @@
 {
-  "SectorsFeelings":"Sectors Feelings"
+  "SectorsFeelingsTitle": "Sectors' Co2 Outputs",
+  "SectorsTable": "Sectors Table",
+  "Dashboard": "Dashboard",
+  "Search": "Search",
+  "Filter": "Filter",
+  "AddItem": "Add Item",
+  "ExportToExcel": "Export to Excel",
+  "ExportToExcelTooltip": "Export the table to excel file",
+  "AddNewItem": "Add a new item",
+  "EditItem": "Edit item",
+  "Add": "Add",
+  "SaveChanges": "Save Changes",
+  "DeleteMessage": "Are you sure you want to delete the data for the below sector",
+  "Cancel": "Cancel",
+  "Delete": "Delete",
+  "NoMoreSectorsMessage": "You have added all the available sectors",
+  "Close": "Close",
+  "AvailableSectors": "Available Sectors",
+  "AssignedSectors": "Assigned Sectors",
+  "PendingSectors": "Pending Sectors",
+  "TopSectors": "Top Sectors",
+  "NoData": "No Data",
+  "chartTitle":"Sectors Co2 Output"
 }

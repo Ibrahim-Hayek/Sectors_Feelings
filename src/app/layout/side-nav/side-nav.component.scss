@@ -3,7 +3,7 @@ mat-sidenav-container.normative-content {
   background-color: transparent;
 
   .mat-drawer.mat-drawer-push {
-    background-color: rgb(0 17 255 / 10%) !important;
+    background-color: rgb(0 17 255 / 5%) !important;
     min-width: 200px;
   }
 
@@ -14,6 +14,11 @@ mat-sidenav-container.normative-content {
       border-radius: 0;
       margin-bottom: 2px;
       padding: 10px;
+
+      span.mat-button-wrapper {
+        font-family: adamBold !important;
+        font-size: 18px;
+      }
     }
 
     .logoHolder {

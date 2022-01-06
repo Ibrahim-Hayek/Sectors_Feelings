@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RowState } from 'src/app/core/state/row.state';
-import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,10 +7,7 @@ import { Store } from '@ngxs/store';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(
-    private store: Store
-  ) { }
-
+  constructor() { }
 
   chartDatasets: Array<any> = [
     { data: [], label: 'Sectors Feelings' }

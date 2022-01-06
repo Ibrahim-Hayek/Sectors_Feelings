@@ -2,6 +2,21 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
+@font-face {
+  font-family: "adamBold";
+  src: url("assets/fonts/Adam-Bold.ttf");
+}
+
+@font-face {
+  font-family: "adamMeduim";
+  src: url("assets/fonts/Adam-Medium.ttf");
+}
+
+@font-face {
+  font-family: "avenir";
+  src: url("assets/fonts/Avenir.ttc");
+}
+
 html,
 body {
   height: 100%;
@@ -9,7 +24,11 @@ body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #fbfcfe;
+}
+
+body * {
+  font-family: avenir;
 }
 
 .cdk-overlay-dark-backdrop {
@@ -43,7 +62,7 @@ mat-option {
 }
 
 .ag-theme-balham .ag-header {
-  background-color: rgb(221 160 221 / 40%)
+  background-color: rgb(221 160 221 / 25%)
 }
 
 .ag-header-cell-label {
@@ -159,6 +178,11 @@ mat-card.mat-card {
   mat-card-title {
     color: rgb(88 116 122 / 100%);
     font-size: 20px;
+    font-family: 'adamBold';
+
+    mat-label {
+      font-family: 'adamBold';
+    }
 
     mat-icon {
       float: right;
@@ -206,4 +230,8 @@ mat-label.noDataMessage {
   text-align: center;
   display: block;
   padding-top: 20px;
+}
+
+.pageMainHolder {
+  margin-top: 70px;
 }

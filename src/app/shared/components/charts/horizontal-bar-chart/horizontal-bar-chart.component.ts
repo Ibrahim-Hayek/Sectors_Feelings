@@ -14,8 +14,12 @@ export class HorizontalBarChartComponent {
   @Input() chartLabels: any;
 
   public chartOptions: any = {
-    responsive: true
+    responsive: true,
+    legend: {
+      display: false,
+    },
   };
+
   public chartClicked(e: any): void { }
   public chartHovered(e: any): void { }
 

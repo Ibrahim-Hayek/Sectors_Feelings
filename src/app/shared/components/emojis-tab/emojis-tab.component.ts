@@ -12,11 +12,11 @@ export class EmojisTabComponent {
   @Output() emojiSelected: EventEmitter<any> = new EventEmitter();
   @Output() closeTab: EventEmitter<void> = new EventEmitter();
 
-  addFilterEmoji(event: any) {
+  addFilterEmoji(event: any): void {
     this.emojiSelected.emit(event)
   }
 
-  closeTabEvent() {
+  closeTabEvent(): void {
     this.closeTab.emit()
   }
 }

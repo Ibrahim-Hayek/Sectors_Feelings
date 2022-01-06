@@ -1,10 +1,10 @@
 <button mat-flat-button (click)="toggleShowSearch()" *ngIf="!showSearch">
   <mat-icon>manage_search</mat-icon>
-  <mat-label>Search</mat-label>
+  <mat-label>{{'Search' | translate}}</mat-label>
 </button>
 <form [formGroup]="filterForm" class="filterForm" [hidden]="!showSearch" (ngSubmit)="submitFilter()">
   <mat-form-field class="filterField" appearance="fill">
-    <mat-label>Filter</mat-label>
+    <mat-label>{{'Filter' | translate}}</mat-label>
     <input matInput formControlName="filterField" #filterField>
     <button matSuffix mat-icon-button (click)="showFilterEmojiList()" type="button" class="emojiButton"
       matTooltip="Open Emoji tab" matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value">
@@ -16,8 +16,9 @@
     </button>
   </mat-form-field>
   <button mat-flat-button type="submit" [disabled]="!filterForm.valid" matTooltip="Apply filter"
-    matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value">Search</button>
+    matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value">{{'Search' | translate}}</button>
 </form>
 <div class="filterEmoji" *ngIf="isFilterEmojiPickerVisible">
-  <app-emojis-tab (emojiSelected)="addFilterEmoji($event)" (closeTab)="isFilterEmojiPickerVisible = false"></app-emojis-tab>
+  <app-emojis-tab (emojiSelected)="addFilterEmoji($event)" (closeTab)="isFilterEmojiPickerVisible = false">
+  </app-emojis-tab>
 </div>

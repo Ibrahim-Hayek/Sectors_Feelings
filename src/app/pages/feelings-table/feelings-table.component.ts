@@ -10,9 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FormControl } from '@angular/forms';
 import { TableGridComponent } from 'src/app/shared/components/table-grid/table-grid.component';
 import { PageEvent } from '@angular/material/paginator';
-import { Store, Select } from '@ngxs/store';
-import { AddRow, DeleteRow } from 'src/app/core/services/rows.action';
-import { Observable } from 'rxjs';
+import { Store } from '@ngxs/store';
 import { Row } from 'src/app/models/rowModal';
 import { RowState } from 'src/app/core/state/row.state';
 
@@ -39,20 +37,21 @@ export class FeelingsTableComponent implements OnInit {
   sectors: ItemModel[] = [];
   addItemForm: FormGroup;
   isEmojiPickerVisible: boolean;
-  itemToEdit: any;
+  itemToEdit: Row;
   editMode = false;
   sectorNameToDelete: '';
   position = new FormControl('above');
   dialogRef: any;
   rows: Row[] | any;
   filterIsOpen = false;
-  
+  length: number; // table grid total rows
+  pageSize: number; // table grid rows per page
   @ViewChild('addItemDialog') addItemDialog: TemplateRef<any>;
   @ViewChild('deleteDialog') deleteDialog: TemplateRef<any>;
   @ViewChild('cannotAddDialog') cannotAddDialog: TemplateRef<any>;
   @ViewChild(TableGridComponent) tableGrid: TableGridComponent;
 
-  // Set Error Messages
+  // Set Form Error Messages
   errorMessages = {
     name: {
       required: 'CO2 is required'
@@ -65,9 +64,6 @@ export class FeelingsTableComponent implements OnInit {
       required: 'ANNOUNCEMENTS.BODY_AR'
     }
   };
-
-  length: number;
-  pageSize: number;
 
   ngOnInit(): void {
     this.fetchSectors();

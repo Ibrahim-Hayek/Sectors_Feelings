@@ -1,27 +1,30 @@
-<div class="tableTopActions">
-  <div class="container">
-    <app-table-filter (tableFilter)="tableFilter($event)" (filterOpened)="filterOpened($event)"></app-table-filter>
-    <button class="reverseAlign" mat-flat-button (click)="checkOpenDialog()" matTooltip="Add a new Item"
-      matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value" [hidden]="filterIsOpen">
-      <mat-icon>add_circle_outline</mat-icon>
-      <mat-label>Add Item</mat-label>
-    </button>
-    <button class="reverseAlign" mat-flat-button (click)="excportToExcel()" matTooltip="Export the table to excel file"
-      matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value"  [hidden]="filterIsOpen">
-      <mat-icon>file_download</mat-icon>
-      <mat-label>Export to Excel</mat-label>
-    </button>
-    <div class="paginator">
-      <app-table-paginator [length]="length" [pageSize]="pageSize" (paginationChanged)="paginationChanged($event)">
-      </app-table-paginator>
+<div class="pageMainHolder">
+  <div class="tableTopActions">
+    <div class="container">
+      <app-table-filter (tableFilter)="tableFilter($event)" (filterOpened)="filterOpened($event)"></app-table-filter>
+      <button class="reverseAlign" mat-flat-button (click)="checkOpenDialog()" [matTooltip]="'AddNewItem' | translate"
+        matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value" [hidden]="filterIsOpen">
+        <mat-icon>add_circle_outline</mat-icon>
+        <mat-label>{{'AddItem' | translate}}</mat-label>
+      </button>
+      <button class="reverseAlign" mat-flat-button (click)="excportToExcel()"
+        [matTooltip]="'ExportToExcelTooltip' | translate" matTooltipClass="normativeTooltip"
+        [matTooltipPosition]="position.value" [hidden]="filterIsOpen">
+        <mat-icon>file_download</mat-icon>
+        <mat-label>{{'ExportToExcel' | translate}}</mat-label>
+      </button>
+      <div class="paginator">
+        <app-table-paginator [length]="length" [pageSize]="pageSize" (paginationChanged)="paginationChanged($event)">
+        </app-table-paginator>
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="contentHolder">
-      <app-table-grid (editItem)="editItem($event)" (deleteItem)="deleteItem($event)" (gridReady)="updatePaginator()">
-      </app-table-grid>
+  <div class="container">
+    <div class="row">
+      <div class="contentHolder">
+        <app-table-grid (editItem)="editItem($event)" (deleteItem)="deleteItem($event)" (gridReady)="updatePaginator()">
+        </app-table-grid>
+      </div>
     </div>
   </div>
 </div>
@@ -31,13 +34,13 @@
     <div class="row">
       <div class="col-md-4">
         <div class="leftSide">
-          <h1 matDialogTitle>{{!editMode ? 'Add a new Item' : 'Edit Item'}}</h1>
+          <h1 matDialogTitle>{{(!editMode ? 'AddNewItem' : 'EditItem') | translate}}</h1>
           <div class="dialog-actions">
             <button mat-flat-button type="submit" [disabled]="!addItemForm.valid" class="submitPopup"
               (click)="!editMode ? submitAddItem(): submitEditItem()"
               [matTooltip]="!editMode ? 'Confirm adding a new item' : 'Confirm saving the changes'"
               matTooltipClass="normativeTooltip"
-              [matTooltipPosition]="position.value">{{!editMode ? 'Add' : 'Save Changes'}}</button>
+              [matTooltipPosition]="position.value">{{(!editMode ? 'Add' : 'SaveChanges') | translate}}</button>
             <button mat-button matDialogClose="no" type="button" class="cancelPopup"
               [matTooltip]="!editMode ? 'Cancel adding a new item' : 'Cancel saving the changes'"
               matTooltipClass="normativeTooltip" [matTooltipPosition]="position.value">Cancel</button>
@@ -72,20 +75,21 @@
 
 <ng-template #deleteDialog>
   <div class="deletePopup">
-    <h1 matDialogTitle>Are you sure you want to delete the data for the below sector ?</h1>
+    <h1 matDialogTitle>{{'DeleteMessage' | translate}} ?</h1>
     <p class="sectorNamePopup">{{sectorNameToDelete}}</p>
     <div class="dialog-actions">
-      <button mat-button matDialogClose="no" type="button" class="cancelDeletePopup">Cancel</button>
-      <button mat-flat-button type="submit" class="submitDeletePopup" matDialogClose="yes">Delete</button>
+      <button mat-button matDialogClose="no" type="button" class="cancelDeletePopup">{{'Cancel' | translate}}</button>
+      <button mat-flat-button type="submit" class="submitDeletePopup"
+        matDialogClose="yes">{{'Delete' | translate}}</button>
     </div>
   </div>
 </ng-template>
 
 <ng-template #cannotAddDialog>
   <div class="deletePopup">
-    <h1 matDialogTitle>You have added all the available sectors.</h1>
+    <h1 matDialogTitle>{{'NoMoreSectorsMessage' | translate}}.</h1>
     <div class="dialog-actions">
-      <button mat-button matDialogClose="no" type="button" class="cancelDeletePopup">Close</button>
+      <button mat-button matDialogClose="no" type="button" class="cancelDeletePopup">{{'Close' | translate}}</button>
     </div>
   </div>
 </ng-template>

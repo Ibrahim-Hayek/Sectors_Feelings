@@ -1,10 +1,10 @@
 <mat-card class="barCard">
-  <mat-card-title>Sectors Co2 Output</mat-card-title>
+  <mat-card-title>{{'chartTitle' | translate}}</mat-card-title>
   <div class="blockDiv">
     <canvas *ngIf="chartDatasets[0].data.length>0" mdbChart [chartType]="chartType" [datasets]="chartDatasets"
       [labels]="chartLabels" [colors]="chartColors" [options]="chartOptions" [legend]="true"
       (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
     </canvas>
-    <mat-label class="noDataMessage" *ngIf="chartDatasets[0].data.length===0">No Data</mat-label>
+    <mat-label class="noDataMessage" *ngIf="chartDatasets[0].data.length===0">{{'NoData' | translate}}</mat-label>
   </div>
 </mat-card>

@@ -3,7 +3,8 @@
     <div class="logoHolder">
       <img src="assets/images/logo.png" />
     </div>
-    <button mat-button type="button" *ngFor="let route of routes" (click)="navigateToPage(route.route)">{{route.title}}</button>
+    <button mat-button type="button" *ngFor="let route of routes"
+      (click)="navigateToPage(route.route)">{{route.title | translate}}</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -11,4 +12,3 @@
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
-  

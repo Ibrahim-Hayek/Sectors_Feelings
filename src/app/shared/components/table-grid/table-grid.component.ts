@@ -15,7 +15,8 @@ import { RowState } from 'src/app/core/state/row.state';
 export class TableGridComponent implements OnInit {
 
   constructor(
-    private store: Store) {
+    private store: Store
+  ) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRendererComponent,
     };

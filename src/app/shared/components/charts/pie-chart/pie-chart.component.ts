@@ -14,7 +14,12 @@ export class PieChartComponent {
   @Input() chartLabels: any;
 
   public chartOptions: any = {
-    responsive: true
+    responsive: true,
+    legend: {
+      labels: {
+        fontFamily: 'avenir'
+      }
+    },
   };
 
   public chartClicked(e: any): void { }

@@ -1,3 +1,25 @@
 {
-  "SectorsFeelings": "hahahah"
+  "SectorsFeelingsTitle": "Co2-utgångar För Sektorer",
+  "SectorsTable": "Sektorer Tabell",
+  "Dashboard": "Instrumentbräda",
+  "Search": "Sök",
+  "Filter": "Filtrera",
+  "AddItem": "Lägg till vara",
+  "ExportToExcel": "Exportera till Excel",
+  "ExportToExcelTooltip": "Exportera tabellen till excel-fil",
+  "AddNewItem": "Lägg till ett nytt objekt",
+  "EditItem": "Redigera objekt",
+  "Add": "Lägg",
+  "SaveChanges": "Spara ändringar",
+  "DeleteMessage": "Är du säker på att du vill radera data för nedanstående sektor",
+  "Cancel": "Annullera",
+  "Delete": "Radera",
+  "NoMoreSectorsMessage": "Du har lagt till alla tillgängliga sektorer",
+  "Close": "Stänga",
+  "AvailableSectors": "Tillgängliga sektorer",
+  "AssignedSectors": "Tilldelade sektorer",
+  "PendingSectors": "Väntande sektorer",
+  "TopSectors": "Toppsektorer",
+  "NoData": "Inga data",
+  "chartTitle":"Co2-utgång för sektorer"
 }
