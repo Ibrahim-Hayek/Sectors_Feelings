@@ -18,6 +18,15 @@ export class HorizontalBarChartComponent {
     legend: {
       display: false,
     },
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      ]
+    }
   };
 
   public chartClicked(e: any): void { }

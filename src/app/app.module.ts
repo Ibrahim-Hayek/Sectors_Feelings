@@ -30,6 +30,7 @@ import { NgxsModule } from '@ngxs/store';
 import { RowState } from './core/state/row.state';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
     TablePaginatorComponent,
     DashboardComponent,
     PieChartComponent,
-    HorizontalBarChartComponent
+    HorizontalBarChartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
