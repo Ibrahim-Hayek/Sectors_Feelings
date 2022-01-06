@@ -1,0 +1,74 @@
+mat-card {
+  &.totalSectors {
+    &.mat-card.sectorsCardOne {
+      background-image: linear-gradient(to bottom right, #c1d6fc, #f7cdff);
+    }
+
+    &.mat-card.sectorsCardTwo {
+      background-image: linear-gradient(to bottom right, #a4e5f7, #bef0e7);
+    }
+
+    &.mat-card.sectorsCardThree {
+      background-image: linear-gradient(to bottom right, #ffce56, #f9ebe3);
+    }
+  }
+
+  &.topSectors {
+    background-color: rgb(0 78 195 / 10%);
+
+    mat-card-content.mat-card-content {
+      height: calc(100% - 50px);
+    }
+
+    .topSecItem {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0 !important;
+      border-radius: 4px;
+      box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 12%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+      height: calc((100% / 3) - 15px);
+
+      mat-label.sectorName {
+        color: #4d5360;
+        display: block;
+        padding-top: 10px;
+        padding-left: 12px;
+        font-size: 14px;
+        font-size: 18px;
+      }
+
+      mat-icon {
+        font-size: 35px;
+      }
+
+      mat-label.score {
+        color: #191f72;
+        font-size: 14px;
+        vertical-align: top;
+        margin: 0 6px;
+      }
+
+      .sectorInfo {
+        color: black;
+        float: right;
+        text-align: right;
+
+        mat-label {
+          display: block;
+        }
+      }
+
+      &.first mat-icon {
+        color: gold;
+      }
+
+      &.second mat-icon {
+        color: silver;
+      }
+
+      &.third mat-icon {
+        color: #cd7f32;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<ag-grid-angular #table class="ag-theme-balham" [columnDefs]="columnDefs" [headerHeight]="50"
+  (gridReady)="onGridReady($event)" [defaultColDef]="defaultColDef" [rowDragManaged]="true" [animateRows]="true"
+  [rowSelection]="rowSelection" [frameworkComponents]="frameworkComponents" [getRowNodeId]="getRowNodeId"
+  [rowHeight]="rowHeight" 
+  [paginationPageSize]="paginationPageSize"
+      [pagination]="true"
+      [suppressPaginationPanel]="true"
+      [suppressScrollOnNewData]="true"
+      (paginationChanged)="onPaginationChanged($event)">
+</ag-grid-angular>

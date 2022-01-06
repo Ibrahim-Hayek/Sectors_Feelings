@@ -1,0 +1,20 @@
+<div class="headerHolder">
+  <button class="menuNavButton" mat-flat-button color="primary" (click)="toggleDrawer()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>{{'SectorsFeelings'| translate}}</h1>
+  <div class="headerAccountSection float-right">
+    <div class="changeLangHolder">
+      <mat-form-field appearance="fill">
+        <mat-label>{{'Language' | translate}}</mat-label>
+        <mat-select name="language" [(ngModel)]="language" (selectionChange)="changeLanguage($event)">
+          <mat-option *ngFor="let item of languages" [value]="item.value">
+            <img [src]="item.img" />{{item.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <p>Welcome Emma</p>
+    <img src="assets/images/avatar.png" />
+  </div>
+</div>

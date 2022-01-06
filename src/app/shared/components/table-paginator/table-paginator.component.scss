@@ -1,0 +1,28 @@
+::ng-deep mat-paginator.mat-paginator {
+  background: transparent;
+
+  button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background-color: rgb(171 0 148 / 90%);
+
+    &.mat-paginator-navigation-previous {
+      margin-right: 8px;
+    }
+
+    &.mat-button-disabled {
+      background-color: rgb(171 0 148 / 40%);
+
+      &:hover {
+        background-color: rgb(171 0 148 / 40%);
+      }
+    }
+
+    &:hover {
+      background-color: rgb(231 62 209 / 90%);
+    }
+
+  }
+
+}

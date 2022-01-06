@@ -1,0 +1,7 @@
+<mat-form-field appearance="fill" (click)="showEmojiList()">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [formControl]="childControl" [readonly]="readonly">
+</mat-form-field>
+<div *ngIf="(childControl?.touched && childControl?.invalid)" class="errorMessage">
+  <p *ngIf="childControl?.errors?.['required']">{{label}} is required.</p>
+</div>

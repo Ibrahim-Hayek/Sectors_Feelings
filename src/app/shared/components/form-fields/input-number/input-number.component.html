@@ -1,0 +1,8 @@
+<mat-form-field appearance="fill">
+  <mat-label>{{label}}</mat-label>
+  <input matInput [formControl]="childControl" type="number" />
+</mat-form-field>
+<div *ngIf="(childControl?.touched && childControl?.invalid)" class="errorMessage">
+  <p *ngIf="childControl?.errors?.['required']">{{label}} is required.</p>
+  <p *ngIf="childControl?.errors?.['min']">Minimum number for {{label}} is 0.</p>
+</div>

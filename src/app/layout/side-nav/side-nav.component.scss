@@ -1,0 +1,28 @@
+mat-sidenav-container.normative-content {
+  height: 100% !important;
+  background-color: transparent;
+
+  .mat-drawer.mat-drawer-push {
+    background-color: rgb(0 17 255 / 10%) !important;
+    min-width: 200px;
+  }
+
+  ::ng-deep .mat-drawer-inner-container {
+    button {
+      width: 100%;
+      background-color: #191f72;
+      border-radius: 0;
+      margin-bottom: 2px;
+      padding: 10px;
+    }
+
+    .logoHolder {
+      padding: 30px 20px 50px;
+      text-align: center;
+
+      img {
+        max-width: 200px;
+      }
+    }
+  }
+}

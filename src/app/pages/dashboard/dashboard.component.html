@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="contentHolder">
+    <div class="dashboadSectors">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row h100 vertivalCardHolder">
+            <div class="col-md-12">
+              <mat-card class="totalSectors sectorsCardOne vertical">
+                <mat-card-title>
+                  <mat-icon>list_alt</mat-icon>
+                  <mat-label>Available Sectors</mat-label>
+                </mat-card-title>
+                <mat-card-subtitle>{{availableSectorsNumber}}</mat-card-subtitle>
+              </mat-card>
+            </div>
+            <div class="col-md-12">
+              <mat-card class="totalSectors sectorsCardTwo vertical">
+                <mat-card-title>
+                  <mat-icon>assignment_turned_in</mat-icon>
+                  <mat-label>Assigned Sectors</mat-label>
+                </mat-card-title>
+                <mat-card-subtitle>{{assignedSectorsNumber}}</mat-card-subtitle>
+              </mat-card>
+            </div>
+            <div class="col-md-12">
+              <mat-card class="totalSectors sectorsCardThree">
+                <mat-card-title>
+                  <mat-icon>pending_actions</mat-icon>
+                  <mat-label>Pending Sectors</mat-label>
+                </mat-card-title>
+                <mat-card-subtitle>{{availableSectorsNumber - assignedSectorsNumber}}</mat-card-subtitle>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <app-horizontal-bar-chart [chartDatasets]="chartDatasets" [chartLabels]="chartLabels">
+          </app-horizontal-bar-chart>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-card class="bottomCards topSectors">
+          <mat-card-title>Top Sectors</mat-card-title>
+          <mat-card-content>
+            <mat-label class="noDataMessage" *ngIf="chartDatasets[0].data.length===0">No Data</mat-label>
+            <div class="topSecItem" *ngFor="let item of topSectors, let i = index" [hidden]="i>2" [class.first]="i===0"
+              [class.second]="i===1" [class.third]="i===2">
+              <mat-icon>military_tech</mat-icon>
+              <mat-label class="score">{{i===0?'1st':i===1?'2nd':i===2?'3rd':''}}</mat-label>
+              <div class="sectorInfo">
+                <mat-label>Co2: <span>{{item.co2}} {{item.feeling}}</span></mat-label>
+              </div>
+              <mat-label class="sectorName">{{item.sector}}</mat-label>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md-6">
+        <app-pie-chart [chartDatasets]="chartDatasets" [chartLabels]="chartLabels">
+        </app-pie-chart>
+      </div>
+
+    </div>
+  </div>
+</div>
