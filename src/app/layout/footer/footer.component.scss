@@ -3,4 +3,17 @@ footer.sectorsFooter {
   bottom: 0;
   width: 100%;
   z-index: 999;
+
+  ::ng-deep mdb-icon {
+    i {
+      transition: 0.5s;
+    }
+
+    &:hover {
+      i {
+        transform: rotateY(360deg);
+        color: #c0bfeb !important;
+      }
+    }
+  }
 }

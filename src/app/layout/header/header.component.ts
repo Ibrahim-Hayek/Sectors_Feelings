@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { HelperService } from 'src/app/core/services/helper.service';
+import { Lang } from 'src/app/core/enums/languages.enum';
 
 @Component({
   selector: 'app-header',
@@ -18,12 +19,12 @@ export class HeaderComponent implements OnInit {
     {
       img: 'assets/images/englishFlag.png',
       label: 'English',
-      value: 'en',
+      value: Lang.English,
     },
     {
       img: 'assets/images/swedenFlag.png',
       label: 'Swedish',
-      value: 'sw',
+      value: Lang.Swedish,
     }
   ];
   language = '';

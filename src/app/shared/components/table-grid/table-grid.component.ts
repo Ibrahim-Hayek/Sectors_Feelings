@@ -54,7 +54,6 @@ export class TableGridComponent implements OnInit {
   rows: Observable<Row>;
 
   onPaginationChanged(e: any) {
-
   }
 
   ngOnInit(): void {
@@ -121,11 +120,11 @@ export class TableGridComponent implements OnInit {
     return rowData;
   }
 
-  goToNext() {
+  goToNext(): void {
     this.gridApi.paginationGoToNextPage();
   }
 
-  goToPrev() {
+  goToPrev(): void {
     this.gridApi.paginationGoToPreviousPage();
   }
 
@@ -160,7 +159,7 @@ export class TableGridComponent implements OnInit {
     this.gridApi.setQuickFilter(event);
   }
 
-  exportToExcel() {
+  exportToExcel(): void {
     this.gridApi.exportDataAsCsv({
       columnKeys: ['sector', 'co2', 'feeling'],
       fileName: 'Sectors Feelings' + (new Date()).toString()

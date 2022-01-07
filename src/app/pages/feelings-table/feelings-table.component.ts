@@ -67,26 +67,7 @@ export class FeelingsTableComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchSectors();
-    this.initaddItemForm();
-  }
-
-  // Event triggered when the pagination is changed
-  paginationChanged(event: PageEvent): void {
-    if (event.pageIndex > Number(event.previousPageIndex)) {
-      this.tableGrid.goToNext();
-    }
-    else if (event.pageIndex < Number(event.previousPageIndex)) {
-      this.tableGrid.goToPrev();
-    }
-    else if (event.pageIndex == Number(event.previousPageIndex)) {
-      this.tableGrid.gridApi.paginationSetPageSize(Number(event.pageSize));
-    }
-  }
-
-  // Update the pagination values
-  updatePaginator(): void {
-    this.pageSize = this.tableGrid.paginationPageSize;
-    this.length = this.tableGrid.getAllRowsNumber()
+    this.initAddItemForm();
   }
 
   // Get sectors from API
@@ -95,14 +76,21 @@ export class FeelingsTableComponent implements OnInit {
       const sectorsResponse = response;
       if (sectorsResponse.hasError() && sectorsResponse.errors) {
         sectorsResponse.errors.forEach(element => {
-          this.translate.get(['TOASTER.DATAMODEL.FAILD']).subscribe(translateValue => {
-            this.showFaildToastr(translateValue['TOASTER.DATAMODEL.FAILD'], element.message ? element.message : 'No message provided')
+          this.translate.get(['toastr.api_failed']).subscribe(translateValue => {
+            this.showFaildToastr('Error', element.message ? element.message : 'No message provided')
           });
         });
+        localStorage.getItem('sectorsFromAPI') ? this.sectors = JSON.parse(localStorage.getItem('sectorsFromAPI') || '[]') : null;
       }
       else {
         this.sectorsResponse = response.result;
-        if (this.sectorsResponse) {
+        if (!this.sectorsResponse) {
+          this.translate.get(['toastr.api_failed']).subscribe(translateValue => {
+            this.showFaildToastr('Error', translateValue['toastr.api_failed'])
+          });
+          localStorage.getItem('sectorsFromAPI') ? this.sectors = JSON.parse(localStorage.getItem('sectorsFromAPI') || '[]') : null;
+        }
+        else {
           this.sectors = this.sectorsResponse.children;
           localStorage.setItem('sectorsFromAPI', JSON.stringify(this.sectorsResponse.children));
         }
@@ -112,7 +100,7 @@ export class FeelingsTableComponent implements OnInit {
   }
 
   // Initiate the add/edit form
-  initaddItemForm(): void {
+  initAddItemForm(): void {
     this.addItemForm = this.formBuilder.group({
       sector: ['', [Validators.required]],
       co2: ['', [Validators.required, Validators.max(Number.MAX_VALUE), Validators.min(0)]],
@@ -120,25 +108,25 @@ export class FeelingsTableComponent implements OnInit {
     });
   }
 
-  // check if all sectors is added before shwing the Add dialog
+  // check if all sectors is added before showing the Add dialog
   checkOpenDialog() {
     if (this.length === this.sectors.length) {
-      this.oepncannotAddDialog();
+      this.oepnCannotAddDialog();
     }
     else {
-      this.openDialog()
+      this.openFormDialog()
     }
   }
 
   // Open the message dialog
-  oepncannotAddDialog() {
+  oepnCannotAddDialog() {
     this.dialogRef = this.dialog.open(this.cannotAddDialog, { panelClass: ['confirmationPopup'], disableClose: true });
     this.dialogRef.afterClosed().subscribe((result: any) => {
     })
   }
 
   // Open the add/edit form dialog
-  openDialog(): void {
+  openFormDialog(): void {
     this.dialogRef = this.dialog.open(this.addItemDialog, { panelClass: ['formWithTabs'], disableClose: true });
     this.dialogRef.afterClosed().subscribe((result: any) => {
       if (result !== undefined) {
@@ -223,7 +211,7 @@ export class FeelingsTableComponent implements OnInit {
     });
     this.itemToEdit = itemToEdit;
     this.editMode = true;
-    this.openDialog();
+    this.openFormDialog();
   }
 
   // event emitted when delete row clicked
@@ -288,17 +276,37 @@ export class FeelingsTableComponent implements OnInit {
     });
   }
 
+  // Event triggered when the pagination is changed
+  paginationChanged(event: PageEvent): void {
+    if (event.pageIndex > Number(event.previousPageIndex)) {
+      this.tableGrid.goToNext();
+    }
+    else if (event.pageIndex < Number(event.previousPageIndex)) {
+      this.tableGrid.goToPrev();
+    }
+    else if (event.pageIndex == Number(event.previousPageIndex)) {
+      this.tableGrid.gridApi.paginationSetPageSize(Number(event.pageSize));
+    }
+  }
+
+  // Update the pagination values
+  updatePaginator(): void {
+    this.pageSize = this.tableGrid.paginationPageSize;
+    this.length = this.tableGrid.getAllRowsNumber()
+  }
+
   // Filter the table rows
   tableFilter(event: string): void {
     this.tableGrid.filter(event)
   }
 
-  excportToExcel() {
+  excportToExcel(): void {
     this.tableGrid.exportToExcel();
   }
+  
   // Show Faild Message toast
   showFaildToastr(title: string, message: string): void {
-    this.helperService.showFaildToastr(title, message);
+    this.helperService.showFaildToastr(message, title);
   }
 
   filterOpened(event: boolean): void {

@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { SharedModule } from './shared/shared.module';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { LoaderComponent } from './layout/loader/loader.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
+
+// APP COMPONENTS
+import { SharedModule } from './shared/shared.module';
 import { FeelingsTableComponent } from './pages/feelings-table/feelings-table.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { TableFilterComponent } from './shared/components/table-filter/table-filter.component';
@@ -23,14 +27,11 @@ import { InputDropdownComponent } from './shared/components/form-fields/input-dr
 import { EmojisTabComponent } from './shared/components/emojis-tab/emojis-tab.component';
 import { TablePaginatorComponent } from './shared/components/table-paginator/table-paginator.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { PieChartComponent } from './shared/components/charts/pie-chart/pie-chart.component';
 import { HorizontalBarChartComponent } from './shared/components/charts/horizontal-bar-chart/horizontal-bar-chart.component';
-import { NgxsModule } from '@ngxs/store';
-import { RowState } from './core/state/row.state';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { FooterComponent } from './layout/footer/footer.component';
+import { LoaderComponent } from './layout/loader/loader.component';
+import { RowState } from './core/state/row.state';
 
 @NgModule({
   declarations: [

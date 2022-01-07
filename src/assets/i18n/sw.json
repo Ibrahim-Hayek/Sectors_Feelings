@@ -21,5 +21,9 @@
   "PendingSectors": "Väntande sektorer",
   "TopSectors": "Toppsektorer",
   "NoData": "Inga data",
-  "chartTitle":"Co2-utgång för sektorer"
+  "chartTitle": "Co2-utgång för sektorer",
+  "toastr": {
+    "api_failed": "Faild to retreive the sectors from the server, the list data was filled from cache.",
+    "error": "Error"
+  }
 }

@@ -2,7 +2,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { Row } from 'src/app/models/rowModal';
 import { AddRow, DeleteRow, EditRow } from '../services/rows.action';
 import { Injectable } from '@angular/core';
-import { patch, append, removeItem, insertItem, updateItem } from '@ngxs/store/operators';
+import { patch, removeItem, updateItem } from '@ngxs/store/operators';
 
 export class RowStateModel {
     rows: Row[];
@@ -14,10 +14,11 @@ export class RowStateModel {
         rows: [],
     }
 })
+
 @Injectable()
 export class RowState {
 
-    @Selector() static rows(state:any){ return state.rows }
+    @Selector() static rows(state: any) { return state.rows }
 
     @Action(AddRow)
     add({ getState, patchState }: StateContext<RowStateModel>, { payload }: AddRow) {

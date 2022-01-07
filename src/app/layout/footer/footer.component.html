@@ -3,23 +3,8 @@
     <div class="row">
       <div class="col-md-12 py-4">
         <div class=" flex-center">
-          <a class="fb-ic">
-            <mdb-icon fab icon="facebook" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
-          </a>
-          <a class="tw-ic">
-            <mdb-icon fab icon="twitter" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
-          </a>
-          <a class="gplus-ic">
-            <mdb-icon fab fab icon="google-plus" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
-          </a>
-          <a class="li-ic">
-            <mdb-icon fab icon="linkedin" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
-          </a>
-          <a class="ins-ic">
-            <mdb-icon fab icon="instagram" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
-          </a>
-          <a class="pin-ic">
-            <mdb-icon fab icon="pinterest" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
+          <a *ngFor="let item of icons" [class]="item.cssClass">
+            <mdb-icon fab [icon]="item.icon" size="2x" class="white-text mr-md-5 mr-3"></mdb-icon>
           </a>
         </div>
       </div>

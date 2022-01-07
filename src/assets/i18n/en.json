@@ -16,10 +16,14 @@
   "Delete": "Delete",
   "NoMoreSectorsMessage": "You have added all the available sectors",
   "Close": "Close",
-  "AvailableSectors": "Available Sectors",
-  "AssignedSectors": "Assigned Sectors",
-  "PendingSectors": "Pending Sectors",
-  "TopSectors": "Top Sectors",
-  "NoData": "No Data",
-  "chartTitle":"Sectors Co2 Output"
+  "AvailableSectors": "Available sectors",
+  "AssignedSectors": "Assigned sectors",
+  "PendingSectors": "Pending sectors",
+  "TopSectors": "Top sectors",
+  "NoData": "No data",
+  "chartTitle": "Sectors Co2 Output",
+  "toastr": {
+    "api_failed": "Faild to retreive the sectors from the server, the list data was filled from cache.",
+    "error":"Error"
+  }
 }

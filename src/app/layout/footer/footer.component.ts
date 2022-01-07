@@ -9,6 +9,33 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
+  icons = [
+    {
+      cssClass: 'fb-ic',
+      icon: 'facebook'
+    },
+    {
+      cssClass: 'tw-ic',
+      icon: 'twitter'
+    },
+    {
+      cssClass: 'gplus-ic',
+      icon: 'google-plus'
+    },
+    {
+      cssClass: 'li-ic',
+      icon: 'linkedin'
+    },
+    {
+      cssClass: 'ins-ic',
+      icon: 'instagram'
+    },
+    {
+      cssClass: 'pin-ic',
+      icon: 'pinterest'
+    },
+  ];
+
   ngOnInit(): void {
   }
 
